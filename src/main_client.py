@@ -1,6 +1,8 @@
-from discover.discover import DiscoverSender
+from discover.discover import DiscoverClient
+from discover.message_handle import DiscoverSenderMsgHander
 
 if __name__ == "__main__":
-    ds = DiscoverSender()
-    ds.InitSession()
-    ds.SendMsg("hello")
+    dc = DiscoverClient()
+    dc.InitSession()
+    dsm = DiscoverSenderMsgHander(dc)
+    dsm.SendDiscoverMsg()
