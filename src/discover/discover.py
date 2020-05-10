@@ -1,9 +1,9 @@
 import socket
 import struct
-from .message_handle import MsgHandler
+from .net_util import UtilNet
 from typing import Tuple, Any
 
-class DiscoverClient(MsgHandler):
+class DiscoverClient(UtilNet):
     def __init__(self, name="default"):
         pass
     def __del__(self):
@@ -19,7 +19,7 @@ class DiscoverClient(MsgHandler):
         self.mcast_group_port = mcast_group_port
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
 
-class DiscoverServer(MsgHandler):
+class DiscoverServer(UtilNet):
     def __init__(self, name="default"):
         self.socket = None
 
